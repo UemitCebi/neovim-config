@@ -4,6 +4,7 @@ return {
   config = function()
     local configs = require("nvim-treesitter.configs")
     configs.setup({
+      --[[
       ensure_installed = {
         "c",
         "lua",
@@ -24,10 +25,10 @@ return {
         "tsx",
         "typescript",
         "yaml"
-      },
+      },]]
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     })
-  end
+  end,
 }
