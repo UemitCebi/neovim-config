@@ -9,3 +9,6 @@ vim.g.background = "dark"
 vim.opt.swapfile = false
 
 vim.wo.number = true
+
+-- autoformat on save
+vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
