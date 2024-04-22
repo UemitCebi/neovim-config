@@ -14,7 +14,7 @@ return {
         null_ls.builtins.diagnostics.editorconfig_checker,
         null_ls.builtins.diagnostics.markdownlint,
         null_ls.builtins.diagnostics.markuplint,
-        null_ls.builtins.diagnostics.protolint,
+        -- null_ls.builtins.diagnostics.protolint,
         null_ls.builtins.diagnostics.stylelint,
         null_ls.builtins.diagnostics.tidy,
       },
