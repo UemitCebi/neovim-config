@@ -10,5 +10,7 @@ vim.opt.swapfile = false
 
 vim.wo.number = true
 
+vim.o.updatetime = 250
+
 -- autoformat on save
 vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
