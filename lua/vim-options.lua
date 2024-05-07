@@ -14,3 +14,10 @@ vim.o.updatetime = 250
 
 -- autoformat on save
 vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
+
+vim.filetype.add({
+	extension = {
+		postcss = "css",
+		pcss = "css",
+	},
+})
