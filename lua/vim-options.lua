@@ -8,6 +8,8 @@ vim.g.background = "dark"
 
 vim.opt.swapfile = false
 
+vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+
 vim.wo.number = true
 
 vim.o.updatetime = 250
@@ -16,8 +18,8 @@ vim.o.updatetime = 250
 vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
 
 vim.filetype.add({
-	extension = {
-		postcss = "css",
-		pcss = "css",
-	},
+  extension = {
+    postcss = "css",
+    pcss = "css",
+  },
 })
