@@ -49,6 +49,7 @@ return {
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.svelte.setup({ capabilities = capabilities })
+			lspconfig.volar.setup({ capabilities = capabilities })
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 			lspconfig.html.setup({ capabilities = capabilities })
 			lspconfig.gopls.setup({ capabilities = capabilities })
