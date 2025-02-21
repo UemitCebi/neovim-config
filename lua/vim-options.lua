@@ -12,14 +12,22 @@ vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 
 vim.wo.number = true
 
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+--vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 4
+
 vim.o.updatetime = 250
 
 -- autoformat on save
 vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
 
 vim.filetype.add({
-  extension = {
-    postcss = "css",
-    pcss = "css",
-  },
+	extension = {
+		postcss = "css",
+		pcss = "css",
+	},
 })
