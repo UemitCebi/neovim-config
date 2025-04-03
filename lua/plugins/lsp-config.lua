@@ -53,7 +53,7 @@ return {
       lspconfig.tailwindcss.setup({ capabilities = capabilities })
       lspconfig.html.setup({ capabilities = capabilities })
       lspconfig.gopls.setup({ capabilities = capabilities })
-      lspconfig.eslint.setup({ capabilities = capabilities })
+      lspconfig.eslintd.setup({ capabilities = capabilities })
 
       -- lspconfig.golangci_lint_ls.setup({})
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Open hover" })
