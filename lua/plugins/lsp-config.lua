@@ -49,11 +49,11 @@ return {
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.svelte.setup({ capabilities = capabilities })
-      lspconfig.volar.setup({ capabilities = capabilities })
+      --lspconfig.volar.setup({ capabilities = capabilities })
       lspconfig.tailwindcss.setup({ capabilities = capabilities })
       lspconfig.html.setup({ capabilities = capabilities })
       lspconfig.gopls.setup({ capabilities = capabilities })
-      lspconfig.eslintd.setup({ capabilities = capabilities })
+      lspconfig.eslint_d.setup({ capabilities = capabilities })
 
       -- lspconfig.golangci_lint_ls.setup({})
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Open hover" })

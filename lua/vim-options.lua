@@ -41,3 +41,4 @@ vim.filetype.add({
     pcss = "css",
   },
 })
+
