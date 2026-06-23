@@ -1,57 +1,26 @@
 return {
-	"ThePrimeagen/harpoon",
-	branch = "harpoon2",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
-		require("harpoon"):setup()
-		vim.keymap.set("n", "<leader>h", function()
-			local harpoon = require("harpoon")
-			harpoon.ui:toggle_quick_menu(harpoon:list())
-		end, { desc = "Toggle Harpoon list" })
-		vim.keymap.set("n", "<leader>ha", function()
-			require("harpoon"):list():add()
-		end, { desc = "Add current buffer to harpoon" })
-		vim.keymap.set("n", "<leader>hc", function()
-			require("harpoon"):list():clear()
-		end, { desc = "Clear Harpoon list" })
-		vim.keymap.set("n", "<leader>1", function()
-			require("harpoon"):list():select(1)
-		end, { desc = "Select Harpoon 1" })
-		vim.keymap.set("n", "<leader>2", function()
-			require("harpoon"):list():select(2)
-		end, { desc = "Select Harpoon 2" })
-		vim.keymap.set("n", "<leader>3", function()
-			require("harpoon"):list():select(3)
-		end, { desc = "Select Harpoon 3" })
-		vim.keymap.set("n", "<leader>4", function()
-			require("harpoon"):list():select(4)
-		end, { desc = "Select Harpoon 4" })
-		vim.keymap.set("n", "<leader>5", function()
-			require("harpoon"):list():select(5)
-		end, { desc = "Select Harpoon 5" })
-		vim.keymap.set("n", "<leader>6", function()
-			require("harpoon"):list():select(6)
-		end, { desc = "Select Harpoon 6" })
-		vim.keymap.set("n", "<leader>hd1", function()
-			require("harpoon"):list():remove_at(1)
-		end, { desc = "Delete Harpoon 1" })
-		vim.keymap.set("n", "<leader>hd2", function()
-			require("harpoon"):list():remove_at(2)
-		end, { desc = "Delete Harpoon 2" })
-		vim.keymap.set("n", "<leader>hd3", function()
-			require("harpoon"):list():remove_at(3)
-		end, { desc = "Delete Harpoon 3" })
-		vim.keymap.set("n", "<leader>hd4", function()
-			require("harpoon"):list():remove_at(4)
-		end, { desc = "Delete Harpoon 4" })
-		vim.keymap.set("n", "<leader>hd5", function()
-			require("harpoon"):list():remove_at(5)
-		end, { desc = "Delete Harpoon 5" })
-		vim.keymap.set("n", "<leader>hd6", function()
-			require("harpoon"):list():remove_at(6)
-		end, { desc = "Delete Harpoon 6" })
-	end,
-	-- keys = {
-	-- { "<leader>a", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "harpoon quick menu", },
-	--}
+  "ThePrimeagen/harpoon",
+  branch = "harpoon2",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = function()
+    local harpoon = require("harpoon")
+    harpoon:setup()
+
+    vim.keymap.set("n", "<leader>h", function()
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end, { desc = "Toggle Harpoon list" })
+    vim.keymap.set("n", "<leader>ha", function()
+      harpoon:list():add()
+    end, { desc = "Add current buffer to harpoon" })
+    vim.keymap.set("n", "<leader>hc", function()
+      harpoon:list():clear()
+    end, { desc = "Clear Harpoon list" })
+
+    -- Navigate slots with <C-1>–<C-6>
+    for i = 1, 6 do
+      vim.keymap.set("n", "<C-" .. i .. ">", function()
+        harpoon:list():select(i)
+      end, { desc = "Harpoon slot " .. i })
+    end
+  end,
 }

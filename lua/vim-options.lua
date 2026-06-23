@@ -1,19 +1,28 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
---vim.cmd("set number")
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+
 vim.g.mapleader = " "
-vim.g.background = "dark"
+vim.o.background = "dark"
 
 vim.opt.swapfile = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.wrap = false
+vim.opt.scrolloff = 8
+vim.opt.termguicolors = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 
-vim.wo.number = true
-
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldcolumn = "0"
 vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
@@ -33,7 +42,12 @@ vim.keymap.set("n", "<leader>zo", open_all_folds, { desc = "[o]pen all folds" })
 vim.o.updatetime = 250
 
 -- autoformat on save
-vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    vim.lsp.buf.format({ async = false, timeout_ms = 2000 })
+  end,
+})
 
 vim.filetype.add({
   extension = {
@@ -41,4 +55,3 @@ vim.filetype.add({
     pcss = "css",
   },
 })
-
