@@ -2,6 +2,13 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
+    cmd = "Telescope",
+    keys = {
+      { "<leader>ff",        desc = "Find files" },
+      { "<leader>fg",        desc = "Grep through files in project" },
+      { "<leader>fb",        desc = "Find open buffers" },
+      { "<leader><leader>",  desc = "Recent files" },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",

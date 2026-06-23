@@ -5,6 +5,14 @@ return {
     "leoluz/nvim-dap-go",
     "nvim-neotest/nvim-nio",
   },
+  keys = {
+    { "<leader>dt", desc = "Toggle breakpoint" },
+    { "<leader>dc", desc = "Continue / start debugger" },
+    { "<leader>do", desc = "Step over" },
+    { "<leader>di", desc = "Step into" },
+    { "<leader>dO", desc = "Step out" },
+    { "<leader>dq", desc = "Close DAP UI" },
+  },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")

@@ -1,21 +1,27 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
+    cmd = "Mason",
+    build = ":MasonUpdate",
     config = function()
       require("mason").setup()
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       auto_install = true,
     },
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+    },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 

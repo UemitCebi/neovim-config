@@ -2,6 +2,17 @@ return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
   dependencies = { "nvim-lua/plenary.nvim" },
+  keys = {
+    { "<leader>h",  desc = "Toggle Harpoon list" },
+    { "<leader>ha", desc = "Add current buffer to harpoon" },
+    { "<leader>hc", desc = "Clear Harpoon list" },
+    { "<C-1>",      desc = "Harpoon slot 1" },
+    { "<C-2>",      desc = "Harpoon slot 2" },
+    { "<C-3>",      desc = "Harpoon slot 3" },
+    { "<C-4>",      desc = "Harpoon slot 4" },
+    { "<C-5>",      desc = "Harpoon slot 5" },
+    { "<C-6>",      desc = "Harpoon slot 6" },
+  },
   config = function()
     local harpoon = require("harpoon")
     harpoon:setup()
@@ -16,7 +27,6 @@ return {
       harpoon:list():clear()
     end, { desc = "Clear Harpoon list" })
 
-    -- Navigate slots with <C-1>–<C-6>
     for i = 1, 6 do
       vim.keymap.set("n", "<C-" .. i .. ">", function()
         harpoon:list():select(i)

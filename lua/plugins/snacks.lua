@@ -31,5 +31,6 @@ return {
     { "<leader>lg", function() Snacks.lazygit() end, desc = "LazyGit" },
     { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Git log" },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git browse" },
+    { "<leader>;",  function() Snacks.dashboard() end, desc = "Dashboard" },
   },
 }

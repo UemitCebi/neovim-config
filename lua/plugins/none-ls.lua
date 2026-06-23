@@ -1,5 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvimtools/none-ls-extras.nvim",
     {
@@ -28,7 +29,6 @@ return {
       extras,
     }
 
-    -- only register diagnostic sources whose CLI tool is actually installed
     if cmd_exists("ec") or cmd_exists("editorconfig-checker") then
       table.insert(sources, null_ls.builtins.diagnostics.editorconfig_checker.with({
         runtime_condition = file_exists,
@@ -55,7 +55,6 @@ return {
         local bufname = vim.api.nvim_buf_get_name(bufnr)
         local buftype = vim.bo[bufnr].buftype
         local filetype = vim.bo[bufnr].filetype
-        -- skip oil directory buffers, virtual buffers, and non-file buffers
         return buftype == ""
           and filetype ~= "oil"
           and not bufname:match("^oil://")

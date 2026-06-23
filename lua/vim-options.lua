@@ -21,13 +21,24 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- Use simple indent-based folding at startup; switch to treesitter
+-- foldexpr per buffer once treesitter is actually loaded
+vim.opt.foldmethod = "indent"
 vim.opt.foldcolumn = "0"
 vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function(args)
+    local ok = pcall(vim.treesitter.get_parser, args.buf)
+    if ok then
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    end
+  end,
+})
 
 local function close_all_folds()
   vim.api.nvim_exec2("%foldc!", { output = false })
