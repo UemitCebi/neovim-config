@@ -11,8 +11,7 @@ return {
 				suggestion = { enabled = false }, -- handled by copilot-cmp
 				panel = { enabled = false }, -- handled by copilot-cmp
 				filetypes = {
-					gitcommit = true,
-					markdown = true,
+					["*"] = true, -- enable for all filetypes
 				},
 			})
 		end,

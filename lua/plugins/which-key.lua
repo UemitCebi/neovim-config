@@ -7,12 +7,11 @@ return {
 
     local wk = require("which-key")
     wk.add({
-      { "<leader>g", group = "goto / git / format" },
+      { "<leader>g", group = "goto / git" },
       { "<leader>h", group = "harpoon" },
       { "<leader>d", group = "debug" },
       { "<leader>z", group = "folds" },
-      { "<leader>c", group = "code" },
-      { "<leader>r", group = "refactor" },
+      { "<leader>c", group = "code actions" },
       { "<leader>f", group = "find" },
     })
   end,

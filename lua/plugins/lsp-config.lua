@@ -49,9 +49,10 @@ return {
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover docs" })
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+      vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Go to references" })
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+      vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
       vim.keymap.set("n", "]d", function()
         vim.diagnostic.goto_next({ float = diag_float_opts })
