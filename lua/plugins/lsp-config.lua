@@ -51,6 +51,11 @@ return {
       for _, server in ipairs(servers) do
         vim.lsp.config(server, { capabilities = capabilities })
       end
+      -- Disable the html LSP's built-in formatter; prettierd handles HTML formatting
+      vim.lsp.config("html", {
+        capabilities = capabilities,
+        init_options = { provideFormatter = false },
+      })
       vim.lsp.enable(servers)
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover docs" })

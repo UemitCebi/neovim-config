@@ -25,6 +25,7 @@ return {
     local sources = {
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.buf,
+      null_ls.builtins.formatting.prettierd,
       null_ls.builtins.code_actions.refactoring,
       extras,
     }
@@ -41,11 +42,6 @@ return {
     end
     if cmd_exists("markuplint") then
       table.insert(sources, null_ls.builtins.diagnostics.markuplint.with({
-        runtime_condition = file_exists,
-      }))
-    end
-    if cmd_exists("tidy") then
-      table.insert(sources, null_ls.builtins.diagnostics.tidy.with({
         runtime_condition = file_exists,
       }))
     end
